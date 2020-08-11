@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\User as UserResource;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
@@ -50,6 +51,6 @@ class RegisterController extends Controller
             'token' => $user->createToken($user->getAccessTokenName($request))->plainTextToken,
             'token_type' => 'bearer',
             'user' => new UserResource($user)
-        ]);
+        ], Response::HTTP_OK);
     }
 }
