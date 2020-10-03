@@ -12,38 +12,37 @@ class User extends Authenticatable
 {
     use Notifiable, HasApiTokens;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
         'name', 'email', 'password', 'type',
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
     protected $hidden = [
         'password', 'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * RELATIONSHIPS
+     */
+    public function endpoints()
+    {
+        return $this->hasMany(Endpoint::class);
+    }
+
+    /**
+     * ATTRIBUTES
+     */
     public function getNameAttribute($value)
     {
         return ucwords($value);
     }
 
+    /**
+     * METHODS
+     */
     public function getAccessTokenName($request)
     {
         return Str::slug($request->headers->get('Origin') . ' ' . $this->email, '-');

@@ -7,3 +7,7 @@ Route::prefix('auth')->namespace('Auth')->group(function () {
 
     Route::post('login', 'LoginController@login');
 });
+
+Route::prefix('endpoints')->group(function () {
+    Route::get('/', 'EndpointController@index');
+});
