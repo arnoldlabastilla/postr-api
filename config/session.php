@@ -18,7 +18,11 @@ return [
     |
     */
 
+<<<<<<< HEAD
     'driver' => env('SESSION_DRIVER', 'file'),
+=======
+    'driver' => env('SESSION_DRIVER', 'database'),
+>>>>>>> 19e73e9a72622cae573afb3159f69c8cdd158fc3
 
     /*
     |--------------------------------------------------------------------------
@@ -164,7 +168,11 @@ return [
     |
     | By setting this option to true, session cookies will only be sent back
     | to the server if the browser has a HTTPS connection. This will keep
+<<<<<<< HEAD
     | the cookie from being sent to you when it can't be done securely.
+=======
+    | the cookie from being sent to you if it can not be done securely.
+>>>>>>> 19e73e9a72622cae573afb3159f69c8cdd158fc3
     |
     */
 
